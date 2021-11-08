@@ -7,14 +7,14 @@
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID    0xFEED
-#define PRODUCT_ID   0x0000
+#define PRODUCT_ID   0x5344 // "Sin-nyu Shain no Dohki" = SD = 0x53,0x44
 #define DEVICE_VER   0x0001
 #define MANUFACTURER FREEWING-JP
 #define PRODUCT      test_sn_dohki
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 3
+#define MATRIX_COLS 4
 
 /*
  * Keyboard Matrix Assignments
@@ -26,8 +26,8 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
+#define MATRIX_ROW_PINS { B6, B2, B3 }
+#define MATRIX_COL_PINS { B5, B4, E6, D7 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
@@ -39,8 +39,8 @@
 #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 
 //#define LED_NUM_LOCK_PIN B0
-//#define LED_CAPS_LOCK_PIN B1
-//#define LED_SCROLL_LOCK_PIN B2
+#define LED_CAPS_LOCK_PIN D5   // TX LED
+#define LED_SCROLL_LOCK_PIN B0 // RX LED
 //#define LED_COMPOSE_PIN B3
 //#define LED_KANA_PIN B4
 
