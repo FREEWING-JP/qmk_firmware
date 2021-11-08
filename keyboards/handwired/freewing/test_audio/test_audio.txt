@@ -1,0 +1,64 @@
+$ qmk new-keyboard
+Ψ Generating a new QMK keyboard directory
+
+Keyboard Name: handwired/freewing/test_audio
+Keyboard Type:
+        1. avr
+        2. ps2avrgb
+Please enter your choice:  [1]
+Your GitHub User Name: FREEWING-JP
+Your real name: [FREEWING-JP] Y.Sakamoto
+
+Ψ Created a new keyboard called handwired/freewing/test_audio.
+Ψ To start working on things, `cd` into keyboards/handwired/freewing/test_audio,
+Ψ or open the directory in your preferred text editor.
+
+
+$ qmk new-keyboard -kb handwired/freewing/test_audio -t avr -uFREEWING-JP -nY.Sakamoto
+Ψ Generating a new QMK keyboard directory
+
+Your GitHub User Name: [FREEWING-JP]
+Your real name: [FREEWING-JP] Y.Sakamoto
+
+
+# implements default two songs
+$ qmk compile -kb handwired/freewing/test_audio -km default
+Checking file size of handwired_freewing_test_audio_default.hex  [OK]
+ * The firmware size is fine - 21876/28672 (76%, 6796 bytes free)
+
+
+# add LTO_ENABLE = yes for reduce program size
+$ qmk compile -kb handwired/freewing/test_audio -km default
+Checking file size of handwired_freewing_test_audio_default.hex  [OK]
+ * The firmware size is fine - 19750/28672 (68%, 8922 bytes free)
+
+# implements default three songs
+$ qmk compile -kb handwired/freewing/test_audio -km default
+Checking file size of handwired_freewing_test_audio_default.hex  [OK]
+ * The firmware size is fine - 19836/28672 (69%, 8836 bytes free)
+
+# implements default four songs
+$ qmk compile -kb handwired/freewing/test_audio -km default
+Checking file size of handwired_freewing_test_audio_default.hex  [OK]
+ * The firmware size is fine - 19900/28672 (69%, 8772 bytes free)
+
+# implements default five songs(buggy)
+$ qmk compile -kb handwired/freewing/test_audio -km default
+Checking file size of handwired_freewing_test_audio_default.hex  [OK]
+ * The firmware size is fine - 20010/28672 (69%, 8662 bytes free)
+
+
+$ qmk new-keyboard -h
+usage: qmk new-keyboard [-h] [-n REALNAME] [-u USERNAME] [-t {avr,ps2avrgb}] [-kb KEYBOARD]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n REALNAME, --realname REALNAME
+                        Specify your real name if you want to use that. Defaults to username
+  -u USERNAME, --username USERNAME
+                        Specify your username (default from Git config)
+  -t {avr,ps2avrgb}, --type {avr,ps2avrgb}
+                        Specify the keyboard type
+  -kb KEYBOARD, --keyboard KEYBOARD
+                        Specify the name for the new keyboard directory
+
