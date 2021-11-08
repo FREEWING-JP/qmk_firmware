@@ -52,11 +52,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 float song1[][2] = SONG(CAMPANELLA);
 float song2[][2] = SONG(FANTASIE_IMPROMPTU);
 float song3[][2] = SONG(ROCK_A_BYE_BABY);
-/*
-float song1[][2] = SONG(STARTUP_SOUND);
-float song2[][2] = SONG(GOODBYE_SOUND);
-float song3[][2] = SONG(WORKMAN_SOUND);
 float song4[][2] = SONG(AG_SWAP_SOUND);
+/*
 float song5[][2] = SONG(WORKMAN_SOUND);
 float song6[][2] = SONG(CHROMATIC_SOUND);
 float song7[][2] = SONG(GUITAR_SOUND);
@@ -96,7 +93,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 // when keycode QMKSONG3 is released
             }
             break;
-/*
         case QMKSONG4:
             if (record->event.pressed) {
                 // when keycode QMKSONG4 is pressed
@@ -105,6 +101,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 // when keycode QMKSONG4 is released
             }
             break;
+/*
         case QMKSONG5:
             if (record->event.pressed) {
                 // when keycode QMKSONG5 is pressed
