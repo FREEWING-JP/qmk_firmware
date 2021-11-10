@@ -1,6 +1,9 @@
-# test_sn_dohki
+# test_sn_dohki 社畜のキーボード「新入社員の同期」
 
-![test_sn_dohki](imgur.com image replace me!)
+![test_sn_dohki](https://i.imgur.com/jFG8ZiQ.jpeg)  
+http://www.neko.ne.jp/~freewing/hardware/usb_diy_keyboard_dohki/  
+「新入社員の同期」で使える QMKのソース。  
+※ 本プログラムは「遊舎工房」等とは一切関係が無い非公式のもので、FREE WINGが独自に作成した物となります。  
 
 *A short description of the keyboard/project*
 
