@@ -18,7 +18,10 @@ SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
 NKRO_ENABLE = no            # USB Nkey Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
-AUDIO_ENABLE = no           # Audio output
+AUDIO_ENABLE = yes          # Audio output
 
 CUSTOM_MATRIX = lite        # 74HC4051 and 74HC4067
 SRC += matrix.c
+
+# LINK_TIME_OPTIMIZATION_ENABLE = yes
+LTO_ENABLE = yes # Config Option Link Time Optimization

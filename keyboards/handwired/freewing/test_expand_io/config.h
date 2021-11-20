@@ -147,3 +147,13 @@
 /* Bootmagic Lite key configuration */
 //#define BOOTMAGIC_LITE_ROW 0
 //#define BOOTMAGIC_LITE_COLUMN 0
+
+/*
+ * Audio Piezo Buzzer
+ */
+#ifdef AUDIO_ENABLE
+   #define AUDIO_PIN C6
+   #define NO_MUSIC_MODE // Save 2000 bytes
+
+//   #define AUDIO_CLICKY // 1118 bytes
+#endif
