@@ -13,8 +13,8 @@
 #define PRODUCT      test_expand_io
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 4
 
 /*
  * Keyboard Matrix Assignments
@@ -26,18 +26,29 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
-#define UNUSED_PINS
+#define MATRIX_ROW_PINS { NO_PIN, NO_PIN, NO_PIN, NO_PIN }
+#define MATRIX_COL_PINS { NO_PIN, NO_PIN, NO_PIN, NO_PIN }
+// #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+// #define DIODE_DIRECTION COL2ROW
+
+/*
+ * the delay in microseconds when between changing matrix pin state and reading values
+ */
+#define MATRIX_IO_DELAY 5 // 5us, (16+2)*8*5us = 770us = 0.8ms
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
  */
-#define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
+// #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 
+// The state of the indicator pins when the LED is "on" - 1 for high
+#define LED_PIN_ON_STATE 0
+
+//#define LED_NUM_LOCK_PIN B0
+#define LED_CAPS_LOCK_PIN D5   // TX LED
+#define LED_SCROLL_LOCK_PIN B0 // RX LED
 //#define LED_NUM_LOCK_PIN B0
 //#define LED_CAPS_LOCK_PIN B1
 //#define LED_SCROLL_LOCK_PIN B2
@@ -83,9 +94,9 @@
 //#define MATRIX_HAS_GHOST
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
+// #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+// #define LOCKING_RESYNC_ENABLE
 
 /* If defined, GRAVE_ESC will always act as ESC when CTRL is held.
  * This is useful for the Windows task manager shortcut (ctrl+shift+esc).
