@@ -1,8 +1,10 @@
 # test_expand_io
 
-![test_expand_io](imgur.com image replace me!)
+![test_expand_io](https://i.imgur.com/HU0YFvR.png)
 
-*A short description of the keyboard/project*
+*A short description of the keyboard/project*  
+QMK firmware test expand I/O matrix keyboard、Multiplexer / Demultiplexer / Decoder  
+74HC4051 and 74HC4067
 
 * Keyboard Maintainer: [Y.Sakamoto](https://github.com/FREEWING-JP)
 * Hardware Supported: *The PCBs, controllers supported*
