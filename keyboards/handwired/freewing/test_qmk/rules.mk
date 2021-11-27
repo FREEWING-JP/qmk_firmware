@@ -18,7 +18,7 @@ SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
 NKRO_ENABLE = no            # USB Nkey Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
-AUDIO_ENABLE = no           # Audio output
+AUDIO_ENABLE = yes          # Audio output
 
 JOYSTICK_ENABLE = yes       # Joystick Game controller HID Interface
 JOYSTICK_DRIVER = analog    # Stick mode analog or digital

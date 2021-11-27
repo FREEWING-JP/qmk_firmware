@@ -146,3 +146,12 @@
   #define JOYSTICK_AXES_COUNT 2
   #define JOYSTICK_AXES_RESOLUTION 10
 #endif
+
+/*
+ * Audio Piezo Buzzer
+ */
+#ifdef AUDIO_ENABLE
+  #define AUDIO_PIN C6
+  #define NO_MUSIC_MODE // Save 2000 bytes
+  // #define STARTUP_SONG SONG(STARTUP_SOUND)
+#endif
