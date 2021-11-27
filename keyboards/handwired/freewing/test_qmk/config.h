@@ -140,3 +140,9 @@
 /* Bootmagic Lite key configuration */
 //#define BOOTMAGIC_LITE_ROW 0
 //#define BOOTMAGIC_LITE_COLUMN 0
+
+#ifdef JOYSTICK_ENABLE
+  #define JOYSTICK_BUTTON_COUNT 0
+  #define JOYSTICK_AXES_COUNT 2
+  #define JOYSTICK_AXES_RESOLUTION 10
+#endif
