@@ -20,8 +20,9 @@ BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = yes          # Audio output
 
-JOYSTICK_ENABLE = yes       # Joystick Game controller HID Interface
-JOYSTICK_DRIVER = analog    # Stick mode analog or digital
+# JOYSTICK_ENABLE = yes       # Joystick Game controller HID Interface
+# JOYSTICK_DRIVER = analog    # Stick mode analog or digital
+POINTING_DEVICE_ENABLE = yes # Generic Pointer
 SRC += analog.c
 
 OLED_ENABLE = yes           # Display Feature
