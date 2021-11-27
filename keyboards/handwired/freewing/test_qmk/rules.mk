@@ -23,3 +23,9 @@ AUDIO_ENABLE = yes          # Audio output
 JOYSTICK_ENABLE = yes       # Joystick Game controller HID Interface
 JOYSTICK_DRIVER = analog    # Stick mode analog or digital
 SRC += analog.c
+
+OLED_ENABLE = yes           # Display Feature
+OLED_DRIVER = SSD1306       # OLED SSD1306 128x32
+#ifeq ($(strip $(OLED_ENABLE)), yes)
+#    OLED_DRIVER_ENABLE = yes
+#endif

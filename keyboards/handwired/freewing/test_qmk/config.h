@@ -155,3 +155,17 @@
   #define NO_MUSIC_MODE // Save 2000 bytes
   // #define STARTUP_SONG SONG(STARTUP_SOUND)
 #endif
+
+/*
+ * Display OLED SSD1306 128x32
+ */
+#ifdef OLED_ENABLE
+  #define OLED_DISPLAY_ADDRESS 0x3C
+  #define OLED_BRIGHTNESS 255
+  #define OLED_IC OLED_IC_SSD1306
+  #define OLED_DISPLAY_WIDTH 128
+  #define OLED_DISPLAY_HEIGHT 32
+  #define OLED_TIMEOUT 31000
+#endif
+
+#define DEBUG_MATRIX_SCAN_RATE
