@@ -1,6 +1,6 @@
 # test_qmk
 
-![test_qmk](imgur.com image replace me!)
+![handwired/freewing/test_qmk](https://i.imgur.com/9dz0Fku.png)
 
 *A short description of the keyboard/project*
 
