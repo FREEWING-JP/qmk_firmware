@@ -7,14 +7,10 @@
 #include "joystick.h"
 #include "analog.h"
 
-/* joystick config */
-joystick_config_t joystick_axes[JOYSTICK_AXES_COUNT] = {
-    [0] = JOYSTICK_AXIS_IN(B4, 0, 512, 1023),
-    [1] = JOYSTICK_AXIS_IN(B5, 0, 512, 1023)
-};
-
-/* joystick button code (thumbstick pressed) */
-void keyboard_pre_init_kb(void) {
-     // setPinInputHigh(F6);
+void joystick_task(){
+    joystick_status.axes[0] = analogReadPin(B4)/4 - 128;
+    joystick_status.axes[1] = analogReadPin(B5)/4 - 128;
+    joystick_status.status |= JS_UPDATED;
+    send_joystick_packet(&joystick_status);
 }
 #endif
