@@ -33,5 +33,7 @@ OLED_DRIVER = SSD1306       # OLED SSD1306 128x32
 
 DYNAMIC_MACRO_ENABLE = yes  # Dynamic Macro
 
+VIA_ENABLE = yes            # VIA Keymap function
+
 # LINK_TIME_OPTIMIZATION_ENABLE = yes
 LTO_ENABLE = yes # Config Option Link Time Optimization
