@@ -30,3 +30,6 @@ OLED_DRIVER = SSD1306       # OLED SSD1306 128x32
 #ifeq ($(strip $(OLED_ENABLE)), yes)
 #    OLED_DRIVER_ENABLE = yes
 #endif
+
+# LINK_TIME_OPTIMIZATION_ENABLE = yes
+LTO_ENABLE = yes # Config Option Link Time Optimization
