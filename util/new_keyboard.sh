@@ -43,8 +43,8 @@ copy_templates() {
     echo " done"
 
     echo -n "Renaming keyboard files..."
-    mv "${keyboard_dir}/keyboard.c" "${keyboard_dir}/${keyboard_base_name}.c"
-    mv "${keyboard_dir}/keyboard.h" "${keyboard_dir}/${keyboard_base_name}.h"
+    mv "${keyboard_dir}/%(KEYBOARD)s.c" "${keyboard_dir}/${keyboard_base_name}.c"
+    mv "${keyboard_dir}/%(KEYBOARD)s.h" "${keyboard_dir}/${keyboard_base_name}.h"
     echo " done"
 }
 
@@ -80,7 +80,7 @@ replace_year_placeholders() {
         "${keyboard_dir}/${keyboard_base_name}.h"
         "${keyboard_dir}/keymaps/default/keymap.c"
     )
-    replace_placeholders "%YEAR%" "$(date +%Y)" "${replace_year_filenames[@]}"
+    replace_placeholders "%(YEAR)s" "$(date +%Y)" "${replace_year_filenames[@]}"
 }
 
 # Replace %KEYBOARD% with the keyboard name.
@@ -92,10 +92,10 @@ replace_keyboard_placeholders() {
         "${keyboard_dir}/${keyboard_base_name}.c"
         "${keyboard_dir}/keymaps/default/readme.md"
     )
-    replace_placeholders "%KEYBOARD%" "$keyboard_base_name" "${replace_keyboard_filenames[@]}"
+    replace_placeholders "%(KEYBOARD)s" "$keyboard_base_name" "${replace_keyboard_filenames[@]}"
 }
 
-# Replace %YOUR_NAME% with the username.
+# Replace %USER_NAME% with the username.
 replace_name_placeholders() {
     local replace_name_filenames=(
         "${keyboard_dir}/config.h"
@@ -105,7 +105,20 @@ replace_name_placeholders() {
         "${keyboard_dir}/${keyboard_base_name}.h"
         "${keyboard_dir}/keymaps/default/keymap.c"
     )
-    replace_placeholders "%YOUR_NAME%" "$username" "${replace_name_filenames[@]}"
+    replace_placeholders "%(USER_NAME)s" "$username" "${replace_name_filenames[@]}"
+}
+
+# Replace %YOUR_NAME% with the realname.
+replace_realname_placeholders() {
+    local replace_name_filenames=(
+        "${keyboard_dir}/config.h"
+        "${keyboard_dir}/info.json"
+        "${keyboard_dir}/readme.md"
+        "${keyboard_dir}/${keyboard_base_name}.c"
+        "${keyboard_dir}/${keyboard_base_name}.h"
+        "${keyboard_dir}/keymaps/default/keymap.c"
+    )
+    replace_placeholders "%(YOUR_NAME)s" "$realname" "${replace_name_filenames[@]}"
 }
 
 # Check if an array contains an element.
@@ -163,8 +176,12 @@ if ! array_contains "$keyboard_type" "${KEYBOARD_TYPES[@]}"; then
 fi
 
 set_git_username
-prompt "Your Name" "$git_username"
+prompt "Your GitHub Name" "$git_username"
 username=$prompt_return
+
+real_username=$username
+prompt "Your real name" "$real_username"
+realname=$prompt_return
 
 echo
 
@@ -173,6 +190,7 @@ set_sed_i
 replace_year_placeholders
 replace_keyboard_placeholders
 [ -n "$username" ] && replace_name_placeholders
+[ -n "$realname" ] && replace_realname_placeholders
 
 echo
 echo_bold "Created a new keyboard called $keyboard_name."
