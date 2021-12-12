@@ -1,0 +1,17 @@
+$ qmk new-keyboard -kb handwired/freewing/test_qmk -t avr -uFREEWING-JP -nY.Sakamoto
+Ψ Generating a new QMK keyboard directory
+
+Your GitHub User Name: [FREEWING-JP]
+Your real name: [FREEWING-JP] Y.Sakamoto
+
+Ψ Created a new keyboard called handwired/freewing/test_qmk.
+Ψ To start working on things, `cd` into keyboards/handwired/freewing/test_qmk,
+Ψ or open the directory in your preferred text editor.
+
+
+$ qmk compile -kb handwired/freewing/test_qmk -km default
+Checking file size of handwired_freewing_test_qmk_default.hex    [OK]
+ * The firmware size is fine - 26016/28672 (90%, 2656 bytes free)
+
+$ avrdude -p atmega32u4 -c avr109 -P /dev/ttyS18 -U flash:w:/home/user/qmk_firmware/handwired_freewing_test_qmk_default.hex
+
