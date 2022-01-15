@@ -23,6 +23,8 @@
 
 #define ROW_SHIFTER ((ROW_TYPE)1)
 
+#define MAXIMUM_ACCEPT_HIT_KEY 6
+
 #define PCF857x_I2C_TIMEOUT 50
 
 #define I2C_WRITE 0x00
@@ -129,6 +131,23 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         *pt++ = read_rows();
     }
     col_init();
+
+#ifdef MAXIMUM_ACCEPT_HIT_KEY
+    // Check Maximum Accept Hit Key count
+    uint8_t hit_key_count = 0;
+    for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+        ROW_TYPE rows = tmp_rows[col];
+
+        // Hit None Key is Continue
+        if (rows == 0) continue;
+
+        // Counting Hit Key
+        hit_key_count += matrix_bitpop(rows);
+
+        // Not Accept over Maximum Accept Hit Key
+        if (hit_key_count > MAXIMUM_ACCEPT_HIT_KEY) return false;
+    }
+#endif
 
     // Check Keyboard Matrix has Changed
     bool matrix_has_changed = false;
