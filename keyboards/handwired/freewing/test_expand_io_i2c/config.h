@@ -34,6 +34,11 @@
 // #define DIODE_DIRECTION COL2ROW
 
 /*
+ * the delay in microseconds when between changing matrix pin state and reading values
+ */
+#define MATRIX_IO_DELAY 30 // 30us,8*30us = 240us = 0.24ms
+
+/*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
  */
 #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
