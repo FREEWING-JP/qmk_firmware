@@ -140,12 +140,12 @@ static void render_logo(void) {
     oled_write_P(qmk_logo, false);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (oledState == 0) {
         oled_clear();
         render_logo();
         oledState = 1;
-        return;
+        return false;
     } else if (oledState == 1) {
         if (timer_read() < 5000) {
             // Display Logo 5 sec
@@ -153,7 +153,7 @@ void oled_task_user(void) {
             oled_clear();
             oledState = 2;
         }
-        return;
+        return false;
     }
 
     // Host Keyboard Layer Status
@@ -189,5 +189,7 @@ void oled_task_user(void) {
     sprintf(str, "Scan rate:%5ld/sec", get_matrix_scan_rate());
     oled_write(str, false);
 #endif
+
+    return false;
 }
 #endif
