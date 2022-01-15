@@ -129,7 +129,7 @@ void pointing_device_task(void) {
 //#include "oled_display.h"
 #include "oled_driver.h"
 
-uint16_t oledState = 0;
+uint8_t oledState = 0;
 
 static void render_logo(void) {
     static const char PROGMEM qmk_logo[] = {
