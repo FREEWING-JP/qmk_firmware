@@ -13,8 +13,8 @@
 #define PRODUCT      test_expand_io_i2c
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 4
 
 /*
  * Keyboard Matrix Assignments
@@ -26,12 +26,12 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
-#define UNUSED_PINS
+#define MATRIX_ROW_PINS { NO_PIN, NO_PIN, NO_PIN, NO_PIN }
+#define MATRIX_COL_PINS { NO_PIN, NO_PIN, NO_PIN, NO_PIN }
+// #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+// #define DIODE_DIRECTION COL2ROW
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
