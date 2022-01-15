@@ -1,0 +1,29 @@
+$ qmk new-keyboard
+Ψ Generating a new QMK keyboard directory
+
+Keyboard Name: handwired/freewing/test_expand_io_i2c
+Keyboard Type:
+        1. avr
+        2. ps2avrgb
+Please enter your choice:  [1] 1
+Your GitHub User Name: FREEWING-JP
+Your real name: [FREEWING-JP] Y.Sakamoto
+
+
+$ qmk compile -kb handwired/freewing/test_expand_io_i2c -km default
+Checking file size of freewing_test_sn_dohki_default.hex      [OK]
+ * The firmware size is fine - 16048/28672 (55%, 12624 bytes free)
+
+
+$ qmk new-keymap -kb handwired/freewing/test_expand_io_i2c
+Keymap Name: via
+Ψ via keymap directory created in: /home/user/qmk_firmware/keyboards/freewing/test_sn_dohki/keymaps/via
+Ψ Compile a firmware with your new keymap by typing:
+
+        qmk compile -kb freewing/test_sn_dohki -km via
+
+
+$ qmk compile -kb handwired/freewing/test_expand_io_i2c -km via
+Checking file size of freewing_test_sn_dohki_via.hex          [OK]
+ * The firmware size is fine - 18100/28672 (63%, 10572 bytes free)
+
