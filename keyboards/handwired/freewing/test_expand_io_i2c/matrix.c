@@ -149,6 +149,31 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     }
 #endif
 
+    // Hunt Keyboard Matrix Ghost for Anti Ghosting by FREE WING
+    for (uint8_t col = 0; col < MATRIX_COLS - 1; ++col) {
+        ROW_TYPE rows = tmp_rows[col];
+
+        // Hit None Key is Pass without Complaint
+        if (rows == 0) continue;
+
+        // Only Hit One Key
+        bool hit_one_key = (matrix_bitpop(rows) == 1);
+
+        // Check Ghost
+        for (uint8_t col2 = MATRIX_COLS - 1; col2 > col; --col2) {
+
+            // Not detecting bits is Safe
+            if (!(rows & tmp_rows[col2])) continue;
+
+            // When Only Hit One Key, Not detecting other bit is Safe
+            if (hit_one_key && !(rows ^ tmp_rows[col2])) continue;
+
+            // Catch Ghost !!
+            // We are Keyboard Matrix Ghost Busters !!
+            return false;
+        }
+    }
+
     // Check Keyboard Matrix has Changed
     bool matrix_has_changed = false;
     matrix_row_t* p = current_matrix;
