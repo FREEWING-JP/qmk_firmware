@@ -142,19 +142,37 @@ static void render_logo(void) {
 
 bool oled_task_user(void) {
     if (oledState == 0) {
+        // Clear OLED
         oled_clear();
-        render_logo();
-        oledState = 1;
-        return false;
     } else if (oledState == 1) {
+        // Display Logo
+        render_logo();
+    } else if (oledState == 2) {
         if (timer_read() < 5000) {
             // Display Logo 5 sec
-        } else {
-            oled_clear();
-            oledState = 2;
+            return false;
         }
+
+        // Clear OLED
+        oled_clear();
+    }
+
+    // for Keyboard Scan rate Up hack
+    //   3 =  428 scan/sec
+    //   4 =  808 scan/sec
+    //   5 = 1141 scan/sec
+    //   8 = 1970 scan/sec
+    //  10 = 2400 scan/sec
+    //  30 = 4565 scan/sec
+    //  50 = 5346 scan/sec
+    // 100 = 6120 scan/sec
+    // 200 = 6575 scan/sec
+    if (oledState < 10) {
+        ++oledState;
         return false;
     }
+
+    oledState = 3;
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("Layer: "), false);
