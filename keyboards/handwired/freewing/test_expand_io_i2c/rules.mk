@@ -16,3 +16,7 @@ NKRO_ENABLE = no            # Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
+
+CUSTOM_MATRIX = lite        # I2C PCF8574 and PCF8575
+SRC += matrix.c
+QUANTUM_LIB_SRC += i2c_master.c
