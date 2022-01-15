@@ -129,7 +129,7 @@ void pointing_device_task(void) {
 //#include "oled_display.h"
 #include "oled_driver.h"
 
-uint16_t oledState = 0;
+uint8_t oledState = 0;
 
 static void render_logo(void) {
     static const char PROGMEM qmk_logo[] = {
@@ -140,21 +140,39 @@ static void render_logo(void) {
     oled_write_P(qmk_logo, false);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (oledState == 0) {
+        // Clear OLED
         oled_clear();
-        render_logo();
-        oledState = 1;
-        return;
     } else if (oledState == 1) {
+        // Display Logo
+        render_logo();
+    } else if (oledState == 2) {
         if (timer_read() < 5000) {
             // Display Logo 5 sec
-        } else {
-            oled_clear();
-            oledState = 2;
+            return false;
         }
-        return;
+
+        // Clear OLED
+        oled_clear();
     }
+
+    // for Keyboard Scan rate Up hack
+    //   3 =  428 scan/sec
+    //   4 =  808 scan/sec
+    //   5 = 1141 scan/sec
+    //   8 = 1970 scan/sec
+    //  10 = 2400 scan/sec
+    //  30 = 4565 scan/sec
+    //  50 = 5346 scan/sec
+    // 100 = 6120 scan/sec
+    // 200 = 6575 scan/sec
+    if (oledState < 10) {
+        ++oledState;
+        return false;
+    }
+
+    oledState = 3;
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("Layer: "), false);
@@ -189,5 +207,7 @@ void oled_task_user(void) {
     sprintf(str, "Scan rate:%5ld/sec", get_matrix_scan_rate());
     oled_write(str, false);
 #endif
+
+    return false;
 }
 #endif
